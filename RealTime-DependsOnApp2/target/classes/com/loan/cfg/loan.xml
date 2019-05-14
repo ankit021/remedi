@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="c" class="com.loan.beans.Cache">
+	</bean>
+	
+	<bean id="cm" class="com.loan.beans.CacheManager">
+		<constructor-arg name="ch" ref="c"></constructor-arg>
+	</bean>
+
+	<bean id="emi" class="com.loan.bean.EmiCalculator" depends-on="c">
+		<property name="ch" ref="c"></property>
+	</bean>
+</beans>
