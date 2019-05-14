@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="o" class="com.amazon.beans.Order">
+		<property name="OId" value="121"/>
+		<property name="itemCode" value="545"/>
+		<property name="itemQty" value="1"/>
+		<property name="price" value="1542.02"/>
+	</bean>
+	
+	<bean id="s" class="com.amazon.beans.ShippingAddress">
+		<property name="city" value="hyderabad"/>
+		<property name="state" value="TG"></property>
+		<property name="pincode" value="5000"></property>
+	</bean>
+
+	<bean id="b" class="com.amazon.beans.BlueDartService">
+	</bean>
+	
+	<bean id="d" class="com.amazon.beans.DtdcServices" >
+	</bean>
+	
+	<bean id="a" class="com.amazon.beans.AmazoneOrderService">
+		<property name="blue" ref="b"/>
+		<property name="dtdc" ref="d"/>
+	</bean>
+	
+	<alias name="b" alias="d"/>
+
+</beans>
